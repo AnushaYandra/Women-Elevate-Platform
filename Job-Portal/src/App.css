@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900;9..40,1000&display=swap');
+
+body{
+  font-family: 'DM Sans', sans-serif;
+}
+
+.shadow-custom {
+  box-shadow: 2px 2px 0px rgba(149, 164, 149, 0.5), 8px 8px 0px rgba(149, 164, 149, 0.3);
+}
+
+
+.bg-opacity {
+  opacity: 0.9; /* Adjust this value as needed */
+}
+
+.button {
+  background-color: #CCD5AE; /* Initial background color */
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 1s, color 1s; /* Transition for background and text color */
+}
+
+.button:hover {
+  background-color: #D4A373; /* Background color on hover */
+}
+
+.salary-card {
+  background-color: #ffffff; /* Initial background color */
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 1s, color 1s; /* Transition for background and text color */
+}
+
+.salary-card:hover {
+  background-color: #d4ddb6; /* Background color on hover */
+}
+
+.job-card {
+  background-color: #ffffff; /* Initial background color */
+  transition: background-color 1s, color 1s; /* Transition for background and text color */
+}
+
+.job-card:hover {
+  background-color: #fff1e6; /* Background color on hover */
+}
+
+.responsive-background {
+  width: 100%;
+  height: 50vh; /* Adjust height as needed */
+  background-image: url('/images/bg.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+.responsive-salary-background {
+  width: 100%;
+  height: 40vh; /* Adjust height as needed */
+  background-image: url('/images/salary.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+@media (min-width: 1024px) {
+  .md\:responsive-job-background {
+  width: 100%;
+  height: 100vh; /* Adjust height as needed */
+  background: url('/images/jobbg.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+}
+
+@media (min-width: 1024px) {
+  .md\:responsive-login-background {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-image: url('/images/login.jpg'); /* Path to your background image */
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-position: center; /* Center the image in the container */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+  }
+}
+
+
+.active{
+  color: #3575E2;
+  font-weight: 500;
+}
+
+.hidden-radio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(97, 97, 97);
+}
+
+li {
+  list-style: none;
+}
+
+.btns {
+  padding: 10px 20px;
+  margin-right: 6px;
+  background: transparent;
+  border: none;
+  border: 0.6px solid #ccc;
+  border-radius: 5px;
+  color: #323232;
+  cursor: pointer;
+}
+
+/* jobs page */
+
+.card {
+  margin: 20px;
+  border: 1px solid #CCD5AE;
+  padding: 20px;
+  cursor: pointer;
+}
+
+
+.card-title {
+  margin-bottom: 1rem;
+}
+
+.card-reviews {
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.rating-star {
+  color: #d5ab55;
+}
+
+.total-reviews {
+  font-size: 0.9rem;
+  margin-left: 10px;
+}
+
+.card-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bag-icon {
+  color: #535353;
+}
+
+.sidebar-title {
+  font-size: 22px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.sidebar-items {
+  margin-top: 20px;
+}
+
+.sidebar-label-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.sidebar-label-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #ccc; /* border color */
+  background-color: #fff; /* default background color */
+  margin-right: 8px; /* space between radio and label */
+  vertical-align: middle;
+  position: relative;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.hidden-radio:checked + .checkmark {
+  background-color: #CCD5AE; /* background color when checked */
+  border-color: #D4A373; /* border color when checked */
+}
+
+.hidden-radio:checked + .checkmark::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fff; /* color of the inner dot */
+  transform: translate(-50%, -50%);
+}
+
+.all {
+  background: linear-gradient(blue, crimson);
+}
+
+/* Style the label */
+.sidebar-label-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #333; /* label text color */
+}
+
+.sidebar-label-container:hover .checkmark {
+  border-color: #D4A373; /* border color on hover */
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+
+
+.line {
+  margin-top: 3rem;
+  border-color: #f7f7f7;
+}
+
+.brace {
+  color: inherit; /* Match the color of the text, or specify a different color */
+  font-weight: normal; /* Adjust the weight if needed */
+  /* Add any other styling properties as required */
+}
+
+
+/* create a job page */
+
+.create-job-flex{
+  @apply flex flex-col lg:flex-row items-center justify-between gap-8;
+}
+
+.create-job-input{
+  @apply block w-full flex-1 border bg-white py-1.5 pl-3 text-gray-900 ring-1 ring-inset 
+  ring-brown rounded-md placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6;
+}
+
+
