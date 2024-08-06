@@ -55,7 +55,7 @@ async function run() {
     })
 
     app.get("/", async(req, res) => {
-      res.send("Hello");
+      res.json("Hello");
     })
 
     //get jobs by email
