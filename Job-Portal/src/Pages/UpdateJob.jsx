@@ -1,16 +1,48 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLoaderData, useParams } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import CreatableSelect from 'react-select/creatable';
 import { useForm } from 'react-hook-form';
+import { auth, db } from "../Components/firebase";
+import { getDoc, doc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const UpdateJob = () => {
     const {id} = useParams();
     const {_id, jobTitle, companyName, companyLogo, minPrice, maxPrice, salaryType, jobLocation, postedBy, experienceLevel, employmentType, description, skills, jobLink} = useLoaderData();
     const [selectedOption, setSelectedOption] = useState(null);
+    const [userDetails, setUserDetails] = useState(null);
     const { handleSubmit, reset, register, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+
+    const fetchUserData = async () => {
+      return new Promise((resolve, reject) => {
+        auth.onAuthStateChanged(async (user) => {
+          if (user) {
+            const docRef = doc(db, "Users", user.uid);
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+              const userData = docSnap.data();
+              setUserDetails(userData);
+              resolve(userData);
+            } else {
+              //console.log("No such document!");
+              reject("No user data found");
+            }
+          } else {
+            //console.log("User is not logged in");
+            reject("User is not logged in");
+          }
+        });
+      });
+  };
+
+  useEffect(() => {
+      fetchUserData();
+  }, []);
+
     
-    const onSubmit = values => {
+  const onSubmit = values => {
       values.skills = selectedOption;
       //console.log(values);
       fetch(`http://localhost:3000/update-job/${id}`, {
@@ -24,6 +56,7 @@ const UpdateJob = () => {
         //   alert("Job Posted Successfully!")}
         toast.success("Updated Successfully!")
         reset();
+        navigate("/my-job")
       }))
     }
   
@@ -41,8 +74,8 @@ const UpdateJob = () => {
     
   return (
     <div className='max-w-screen-2xl container mx-auto xl:px-24 px-4 pb-10'>
-      <Toaster />
       {/* form page */}
+      <Toaster/>
 
       <div className='text-center py-5 bg-white '>
            <h1 className='inline-block text-3xl font-semibold text-dark-brown border-b-2 border-brown border-dashed'>Update <span className='text-dark-green'>Job</span> Details</h1>
@@ -152,7 +185,7 @@ const UpdateJob = () => {
             <div className='create-job-flex pb-5'>
                <div className='w-full'>
                <label className='inline-block mb-2 text-md font-semibold text-dark-green border-b-2 border-brown border-dashed'>Job Posted By</label>
-                   <input type="email" placeholder={"name@gmail.com"} defaultValue={postedBy} {...register("postedBy")} className='create-job-input'/>
+                   <input type="email" placeholder={"name@gmail.com"} defaultValue={userDetails.email} {...register("postedBy")} className='create-job-input'/>
                </div>
 
                <div className='w-full'>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiCalendar, FiClock, FiDollarSign, FiMapPin } from 'react-icons/fi';
+import { FiCalendar, FiClock, FiMapPin } from 'react-icons/fi';
+import { MdCurrencyRupee } from "react-icons/md";
 
 function Card({ data }) {
   const {
@@ -31,16 +32,15 @@ function Card({ data }) {
             </div>
           </div>
 
-          <div className='text-black/60 text-base flex flex-wrap gap-2 mb-2'>
-            <span className='flex items-center gap-2 text-sm'><FiMapPin /> {jobLocation}</span>
-            <span className='flex items-center gap-2 text-sm'><FiClock /> {employmentType}</span>
-            <span className='flex items-center gap-2 text-sm'><FiDollarSign /> {minPrice}-{maxPrice}k {salaryType}</span>
-            <span className='flex items-center gap-2 text-sm'><FiCalendar /> {postingDate}</span>
+          <div className='text-black/60 text-base flex flex-wrap gap-3 mb-2'>
+            <span className='flex items-center gap-1 text-sm'><FiMapPin /> {jobLocation}</span>
+            <span className='flex items-center gap-1 text-sm'><FiClock /> {employmentType}</span>
+            <span className='flex items-center gap-1 text-sm'><MdCurrencyRupee /> {minPrice}-{maxPrice} {salaryType}</span>
           </div>
 
-          <div className='pb-5 text-black/60 text-base flex gap-2'>
+          <div className='pb-5 text-black/60 text-base flex flex-wrap gap-2'>
               <p className='font-semibold'>Skills:</p>
-                <div className='flex flex-wrap gap-2 text-sm sm:gap-5 md:gap-1'>
+                <div className='flex flex-wrap items-center gap-2 text-sm sm:gap-5 md:gap-1'>
                 {Array.isArray(skills) && skills.length > 0 && skills.map((item, index) => (
                   <p key={item.value}>
                     {item.label}{index < skills.length - 1 && ','}

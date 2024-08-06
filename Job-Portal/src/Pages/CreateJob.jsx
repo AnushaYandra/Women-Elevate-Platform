@@ -51,6 +51,7 @@ function CreateJob() {
       //if(result.acknowledged === true){
       //   alert("Job Posted Successfully!")}
       toast.success("Job Posted Successfully!")
+      navigate("/");
       reset();
     }))
   }
@@ -69,14 +70,13 @@ function CreateJob() {
 
   return (
     <div className='max-w-screen-2xl container mx-auto xl:px-24 px-4 pb-10'>
-      <Toaster />
       {/* form page */}
 
-      <div className='text-center py-5 bg-white '>
+      <div className='text-center py-5'>
            <h1 className='inline-block text-3xl font-semibold text-dark-brown border-b-2 border-brown border-dashed'>Enter <span className='text-dark-green'>Job</span> Details</h1>
       </div>
 
-      <div className='bg-cream py-1 px-4 lg:px-16 rounded-lg pb-5'>
+      <div className='responsive-post-background py-1 px-4 lg:px-16 rounded-lg pb-5'>
 
           <form onSubmit={handleSubmit(onSubmit)}> 
 
@@ -97,12 +97,12 @@ function CreateJob() {
             <div className='create-job-flex pb-5'>
                 <div className='lg:w-1/2 w-full '>
                 <label className='inline-block mb-2 text-md font-semibold text-dark-green border-b-2 border-brown border-dashed'>Minimum Salary</label>
-                   <input type="text" placeholder={"$20k"} {...register("minPrice")} className='create-job-input'/>
+                   <input type="text" placeholder={"2,00,000"} {...register("minPrice")} className='create-job-input'/>
                 </div>
                 
                 <div className='lg:w-1/2 w-full '>
                 <label className='inline-block mb-2 text-md font-semibold text-dark-green border-b-2 border-brown border-dashed'>Maximum Salary</label>
-                   <input type="text" placeholder="$120k" {...register("maxPrice")} className='create-job-input'/>
+                   <input type="text" placeholder="12,00,000" {...register("maxPrice")} className='create-job-input'/>
                 </div>
             </div>
 
@@ -180,7 +180,7 @@ function CreateJob() {
             <div className='create-job-flex pb-5'>
                <div className='w-full'>
                <label className='inline-block mb-2 text-md font-semibold text-dark-green border-b-2 border-brown border-dashed'>Job Posted By</label>
-                   <input type="email" placeholder={"name@gmail.com"} {...register("postedBy")} className='create-job-input'/>
+                   <input type="email" placeholder={"name@gmail.com"} defaultValue={userDetails? userDetails.email : ""} {...register("postedBy")} className='create-job-input'/>
                </div>
 
                <div className='w-full'>

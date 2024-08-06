@@ -21,8 +21,8 @@ function SalaryPage() {
         <div>
             <div className='py-14 mt-3 responsive-salary-background flex flex-col items-center justify-center rounded-lg'>
             <div>
-                <h2 className='text-4xl text-dark-brown font-medium mb-1 text-center'>Estimated Salary</h2>
-                <p className='text-md text-center font-semibold text-dark-green'><a href='/' className='hover:underline'>Home</a></p>
+                <h2 className='text-5xl text-dark-brown font-medium mb-1 text-center'>Estimated Salary</h2>
+                <p className='text-lg text-center font-semibold text-dark-green'><a href='/' className='hover:border-b-2 border-brown border-dashed'>Home</a></p>
             </div>
     
             <div className='search-box p-2 text-center gap-2 flex mt-8'>
@@ -32,7 +32,7 @@ function SalaryPage() {
                     id='search' 
                     placeholder='Search for salaries' 
                     onChange={(e) => setSearchText(e.target.value)} 
-                    className='py-2 pl-3 border bg-transparent border-brown rounded-lg focus:outline-none w-60 md:w-96 placeholder:text-black/70' 
+                    className='py-2 pl-3 border bg-white border-brown rounded-lg focus:outline-none w-60 md:w-96 placeholder:text-gray-400' 
                 />
                 <button onClick={handleSearch} className='rounded px-5 py-1 button shadow-custom'>Search</button>
             </div>

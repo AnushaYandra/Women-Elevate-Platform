@@ -47,7 +47,7 @@ const Signup = () => {
             <div className='flex flex-col items-center'>
               <div className='flex flex-col items-center'>
                  <img src= "/images/Logo.png" className='h-8 w-8'></img>
-                 <h2 className='font-semibold text-2xl text-dark-green border-b-2 border-dashed border-dark-brown mb-5'>Women Elevate</h2>
+                 <h2 className='font-semibold text-2xl text-dark-green border-b-2 border-dashed border-brown mb-5'>Women Elevate</h2>
               </div>
                 <h1 className='font-semibold text-2xl text-dark-brown'>Register</h1>
             </div>

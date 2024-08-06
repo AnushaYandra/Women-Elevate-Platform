@@ -10,6 +10,7 @@ function EachJob() {
     const jobData = location.state || {};
     const {companyName, jobTitle, companyLogo, minPrice, maxPrice, salaryType, jobLocation, employmentType, postingDate, description, experienceLevel, skills, jobLink} = jobData;
     const [userDetails, setUserDetails] = useState(null);
+    const paragraphs = description.split('. ').filter(paragraph => paragraph.trim().length > 0);
 
     const fetchUserData = async () => {
         return new Promise((resolve, reject) => {
@@ -62,15 +63,15 @@ function EachJob() {
                 </div>
 
                 <div className='text-black/70 text-base flex flex-col flex-wrap gap-3 mb-5'>
-                  <p className='flex items-center gap-2 text-md'><FiMapPin /> <span className='font-semibold'>Location:</span> {jobLocation}</p>
-                  <span className='flex items-center gap-2 text-md'><FiClock /> <span className='font-semibold'>Employment type:</span> {employmentType}</span>
-                  <span className='flex items-center gap-2 text-md'><FiDollarSign /> <span className='font-semibold'>Salary range:</span> {minPrice}-{maxPrice}k {salaryType}</span>
-                  <span className='flex items-center gap-2 text-md'><FiCalendar /> <span className='font-semibold'>Posted on:</span> {postingDate}</span>
-                  <span className='flex items-center gap-2 text-md'><MdOutlineWorkHistory /> <span className='font-semibold'>Experience Level:</span> {experienceLevel}</span>
+                  <p className='flex items-center gap-2 text-md'><FiMapPin className='text-dark-brown'/> <span className='font-semibold text-dark-green'>Location:</span> {jobLocation}</p>
+                  <span className='flex items-center gap-2 text-md'><FiClock className='text-dark-brown'/> <span className='font-semibold text-dark-green'>Employment type:</span> {employmentType}</span>
+                  <span className='flex items-center gap-2 text-md'><FiDollarSign className='text-dark-brown'/> <span className='font-semibold text-dark-green'>Salary range:</span> {minPrice}-{maxPrice}k {salaryType}</span>
+                  <span className='flex items-center gap-2 text-md'><FiCalendar className='text-dark-brown'/> <span className='font-semibold text-dark-green'>Posted on:</span> {postingDate}</span>
+                  <span className='flex items-center gap-2 text-md'><MdOutlineWorkHistory className='text-dark-brown'/> <span className='font-semibold text-dark-green'>Experience Level:</span> {experienceLevel}</span>
                 </div>
 
                 <div className='pb-5 text-black/70 text-base flex flex-wrap gap-5 '>
-                    <p className='font-semibold'>Skills:</p>
+                    <p className='font-semibold text-dark-green border-b-2 border-brown border-dashed'>Skills:</p>
                     <div className='flex flex-wrap gap-5 '>
                       {Array.isArray(skills) && skills.length > 0 && skills.map((item) => (
                       <p key={item.value}> {item.label} </p>))}
@@ -78,8 +79,14 @@ function EachJob() {
                 </div>
       
                 <div>
-                    <p className='text-base text-md font-semibold text-black/70 pb-3'>Job Desciption:</p>
-                  <p className='text-black/60 text-md'>{description}</p>
+                    <p className='inline-block font-semibold text-dark-green border-b-2 border-brown border-dashed'>Job Desciption:</p>
+                    <div>
+                      {paragraphs.map((paragraph, index) => (
+                        <p key={index} className='mt-3 text-md text-black/70'>
+                          • {paragraph.trim() + (index !== paragraphs.length - 1 ? '.' : '')}
+                        </p>
+                      ))}
+                    </div>
                 </div>
 
                 {userDetails? (

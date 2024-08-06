@@ -14,17 +14,15 @@ function Salary({handleChange, handleClick}) {
        </div>
 
        <div>
-            {/*
+            
             <label className='sidebar-label-container text-sm text-black/70'>
                 <input type="radio" name="test" id="test" value="" onChange={handleChange} />
                 <span className='checkmark'></span> All
             </label>
-            */}
-            
-            <Input handleChange={handleChange} value={30} title="< 300,000K" name="test2"/>
-            <Input handleChange={handleChange} value={50} title="< 500,000K" name="test2"/>
-            <Input handleChange={handleChange} value={80} title="< 800,000K" name="test2"/>
-            <Input handleChange={handleChange} value={100} title="< 1,000,000K" name="test2"/>
+            <Input handleChange={handleChange} value={5} title="< 5,00,000" name="test2"/>
+            <Input handleChange={handleChange} value={10} title="< 10,00,000" name="test2"/>
+            <Input handleChange={handleChange} value={15} title="< 15,00,000" name="test2"/>
+            <Input handleChange={handleChange} value={20} title="< 20,00,000" name="test2"/>
         </div>
     </div>
   )

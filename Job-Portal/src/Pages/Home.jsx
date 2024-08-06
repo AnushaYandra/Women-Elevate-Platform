@@ -5,6 +5,7 @@ import Jobs from './Jobs';
 import Sidebar from '../Sidebar/Sidebar';
 import Newsletter from '../Components/Newsletter';
 import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -12,6 +13,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const itemPerPage = 6;
+  const navigate = useNavigate();
 
 
   useEffect(()=> {
@@ -35,6 +37,11 @@ const Home = () => {
   //------Radio filtering------
   const handleChange = (event) => {
     setSelectedCategory(event.target.value)
+  }
+
+  const resetFilters = (event) => {
+    setSelectedCategory(null);
+    window.location.reload();
   }
 
   //------button based filtering------
@@ -74,10 +81,10 @@ const Home = () => {
 
     //Category filtering 
     if(selected){
-      filteredJobs = filteredJobs.filter(({jobLocation, maxPrice, experienceLevel, salaryType, employmentType, postingDate})=> (
+      filteredJobs = filteredJobs.filter(({jobLocation, minPrice, experienceLevel, salaryType, employmentType, postingDate})=> (
          postingDate >= selected ||  
          jobLocation.toLowerCase() === selected.toLowerCase() || 
-         parseInt(maxPrice) >= parseInt(selected) || 
+         parseInt(minPrice) <= parseInt(selected) || 
          salaryType.toLowerCase() === selected.toLowerCase() || 
          employmentType.toLowerCase() === selected.toLowerCase() ||
          experienceLevel.toLowerCase() === selected.toLowerCase()
@@ -100,11 +107,11 @@ const Home = () => {
       <Banner query={query} handleInputChange={handleInputChange}/>
 
       {/*Main Content*/}
-      <div className=' md:grid grid-cols-4 gap-8 lg:px-24 px-4 pb-5 bg-cream'>
-         
+      <div className=' md:grid grid-cols-4 lg:px-24 px-4 pb-5 bg-cream flex flex-col gap-10'>
+        
          {/* Left Side */}
          <div>
-          <Sidebar handleChange={handleChange} handleClick={handleClick}/>
+          <Sidebar handleChange={handleChange} handleClick={handleClick} resetFilters={resetFilters}/>
         </div>
 
          {/* Job Cards */}
@@ -118,10 +125,10 @@ const Home = () => {
           {
              result.length > 0 ? (
              <div className='flex justify-center mt-4 space-x-8'>  
-                <button onClick={prevPage}  disabled={currentPage===1} className='text-dark-green hover:text-dark-brown font-bold'> Previous </button>
+                <button onClick={prevPage}  disabled={currentPage===1} className='text-dark-green border-b-2 border-dashed border-dark-brown font-bold'> Previous </button>
                 <span className='text-black/70 mx-2'> Page {currentPage} of {Math.ceil(filteredItems.length/itemPerPage)} </span>
                 <button onClick={nextPage} disabled={currentPage===Math.ceil(filteredItems.length/itemPerPage)} 
-                className='text-dark-green hover:text-dark-brown font-bold'> Next </button>
+                className='text-dark-green font-bold border-b-2 border-dashed border-dark-brown'> Next </button>
              </div>) 
             : ""
           }

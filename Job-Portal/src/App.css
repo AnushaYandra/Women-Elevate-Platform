@@ -60,7 +60,6 @@ body{
 
 .responsive-background {
   width: 100%;
-  height: 50vh; /* Adjust height as needed */
   background-image: url('/images/bg.jpg'); /* Replace with your image URL */
   background-size: cover; /* Ensures the image covers the entire container */
   background-position: center; /* Centers the image */
@@ -79,13 +78,22 @@ body{
 @media (min-width: 1024px) {
   .md\:responsive-job-background {
   width: 100%;
-  height: 100vh; /* Adjust height as needed */
   background: url('/images/jobbg.jpg'); /* Replace with your image URL */
   background-size: cover; /* Ensures the image covers the entire container */
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents the image from repeating */
 }
 }
+
+.responsive-about-background {
+  width: 100%;
+  height: 100vh;
+  background: url('/images/login.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
 
 @media (min-width: 1024px) {
   .md\:responsive-login-background {
@@ -96,6 +104,14 @@ body{
     background-position: center; /* Center the image in the container */
     background-repeat: no-repeat; /* Prevent the image from repeating */
   }
+}
+
+.responsive-post-background {
+  width: 100%; /* Adjust height as needed */
+  background-image: url('/images/post.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
 }
 
 

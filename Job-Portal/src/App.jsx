@@ -4,14 +4,16 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Outlet } from 'react-router-dom'
 import Navbar from './Components/Navbar'
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div>
-       <div ><Navbar/></div>
-       <div><Outlet/></div>
+    <div style={{  }}> {/* Adjusted container */}
+       <Navbar/>
+       <Toaster/>
+       <Outlet/>
     </div>
   )
 }

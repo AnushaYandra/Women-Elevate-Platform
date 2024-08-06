@@ -88,20 +88,20 @@ function MyJobs() {
      </div>
      
      
-     <div className='bg-cream rounded-lg pt-8 pb-8'>
+     <div className='responsive-post-background rounded-lg pt-8 pb-8'>
 
       <div className='text-center my-jobs-container'>
         <div className='search-box p-2 justify-center flex gap-4'>
             <input 
             onChange={(e)=> setSearchText(e.target.value)} placeholder='Search for a job'
-            type='text' name='search' id='search' className='py-2 pl-3 border border-brown rounded-md bg-transparent focus:outline-none lg:w-6/12 mb-4 w-full placeholder:text-black/70'></input>
+            type='text' name='search' id='search' className='py-2 pl-3 border border-brown rounded-md bg-white focus:outline-none lg:w-6/12 mb-4 w-full placeholder:text-gray-400'></input>
             <button className='bg-green font-semibold px-5 py-1 rounded button shadow-custom mb-4' onClick={handleSearch}>Search</button>
         </div>
       </div>
 
       {/* Table of jobs */}
       <section class="py-1 bg-blueGray-50">
-        <div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-5">
+        <div class="w-full xl:w-10/12 mb-12 xl:mb-0 px-4 mx-auto mt-5">
           <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-custom rounded-xl ">
             <div class="rounded-t mb-0 px-4 py-3 border-0">
               <div class="flex flex-wrap items-center">
@@ -157,7 +157,7 @@ function MyJobs() {
                                     {job.companyName}
                                   </td>
                                   <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
-                                    ${job.minPrice}k - ${job.maxPrice}k
+                                  ₹{job.minPrice} - ₹{job.maxPrice}
                                   </td>
                                   <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
                                     <button className='hover:underline'><Link to={`/edit-job/${job?._id}`}>Edit</Link></button>
@@ -181,8 +181,10 @@ function MyJobs() {
       <div className='text-center pt-12'>
         {userDetails ? (<></>) : (
           <>
-            <h1 className='font-bold text-lg text-dark-green pb-3'>Log in to view the jobs you have posted.</h1>
-            <Link to="/Login" className='button shadow-custom py-1 px-6 rounded-md font-semibold'>Login</Link>
+            <h1 className='inline-block font-bold text-lg text-dark-green border-b-2 border-dashed border-brown'>Log in to view the jobs you have posted</h1>
+            <Link to="/Login" className='px-5'>
+            <button className=' button shadow-custom py-1 px-6 rounded-md font-semibold'> Login </button>
+            </Link>
           </>
         )}
       </div>

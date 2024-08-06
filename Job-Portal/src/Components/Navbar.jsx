@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 function Navbar () {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [userDetails, setUserDetails] = useState(null);
+    const [logoutBox, setLogoutBox] = useState(false);
     const navigate = useNavigate();
 
     const fetchUserData = async () => {
@@ -40,6 +41,10 @@ function Navbar () {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const handleLogoutBox = () => {
+      setLogoutBox(true);
+    }
+
     const handleLogout = async() => {
         try{
             await auth.signOut();
@@ -65,7 +70,7 @@ function Navbar () {
                 <a href = "/" className='flex items-center gap-2 text-3xl'>
                 <img src= "/images/Logo.png"
                 className='h-8 w-8'></img>
-                <span className='font-bold text-dark-green border-b-2 border-dashed border-dark-brown'>
+                <span className='font-bold text-dark-green border-b-2 border-dashed border-brown'>
                 Women Elevate
                 </span>
                 </a>
@@ -77,7 +82,7 @@ function Navbar () {
                              <li key = {path} className='hover:text-dark-brown text-base font-medium'>
                                 <NavLink
                                   to={path}
-                                  className={({ isActive}) => isActive ? "text-dark-brown font-bold border-b-2 border-dashed border-dark-brown" : ""}> {title}
+                                  className={({ isActive}) => isActive ? "text-dark-brown font-bold border-b-2 border-dashed border-brown" : ""}> {title}
                                 </NavLink>
                              </li>
                         ))
@@ -88,8 +93,8 @@ function Navbar () {
                 <>
                    {userDetails? (
                     <div className='text-base font-medium hidden lg:flex items-center gap-3'>
-                      <h2 className='font-bold text-dark-brown text-lg border-b-2 border-dark-brown border-dashed'> Hey {userDetails.firstName}!</h2>
-                      <button onClick={handleLogout} className="py-1 px-5 mr-5 rounded button shadow-custom" >Log out</button>
+                      <h2 className='font-bold text-dark-brown text-lg border-b-2 border-brown border-dashed'> Hey {userDetails.firstName}!</h2>
+                      <button onClick={handleLogoutBox} className="py-1 px-5 mr-5 rounded button shadow-custom" >Log out</button>
                     </div>
                    ) : (
                     <div className='text-base font-medium hidden lg:block'>
@@ -97,6 +102,7 @@ function Navbar () {
                     </div>
                    )}
                 </>
+
 
                 {/* Mobile Menu*/}
                 <div className='md:hidden block'> 
@@ -125,11 +131,40 @@ function Navbar () {
                         ))
                     }
 
-                    <li className='py-1 hover:text-dark-brown text-base font-medium'><Link to= "/Login" >Log in</Link></li>
-                    <li className='py-1 hover:text-dark-brown text-base font-medium'><Link to= "/Signup" >Sign up</Link></li>
+                    <>
+                    {userDetails? (
+                      <div>
+                        <li onClick={handleLogout} className='py-1 hover:text-dark-brown text-base font-medium'><Link to= "/Login" >Log out</Link></li>
+
+                      </div>
+                    ) : (
+                      <div>
+                      <li className='py-1 hover:text-dark-brown text-base font-medium'><Link to= "/Login" >Log in</Link></li>
+                      <li className='py-1 hover:text-dark-brown text-base font-medium'><Link to= "/Signup" >Sign up</Link></li>
+                    </div>
+                    )}
+                    </>
+
                 </ul>
             </div>
         </header>
+
+          {/* Logout confirmation box*/}
+          <div className='flex items-end justify-end pr-10'> 
+            <div>
+                {
+                  logoutBox ? (
+                    <div className='bg-cream p-5 rounded-xl'>
+                      <p className=''>Do you wanna log out?</p>
+                      <div className='flex gap-5 items-center justify-center'>
+                        <button onClick={handleLogout} className='button shadow-custom px-4 py-1 rounded-md'>Yes</button>
+                        <button onClick={()=>setLogoutBox(false)} className='button shadow-custom px-4 py-1 rounded-md'>No</button>
+                      </div>
+                    </div>
+                  ) : ("")
+                }
+            </div>
+          </div>
     </div>
   )
 }

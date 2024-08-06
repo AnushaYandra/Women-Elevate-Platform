@@ -13,11 +13,11 @@ function Location({handleChange}) {
                 <span className='checkmark'></span> All
             </label>
 
-            <Input handleChange={handleChange} value="London" title="London" name="test"/>
-            <Input handleChange={handleChange} value="Seattle" title="Seattle" name="test"/>
-            <Input handleChange={handleChange} value="Boston" title="Boston" name="test"/>
-            <Input handleChange={handleChange} value="Brussels" title="Brussels" name="test"/>
-            <Input handleChange={handleChange} value="India" title="India" name="test"/>
+            <Input handleChange={handleChange} value="Delhi, India" title="Delhi" name="test"/>
+            <Input handleChange={handleChange} value="Pune, India" title="Pune" name="test"/>
+            <Input handleChange={handleChange} value="Mumbai, India" title="Mumbai" name="test"/>
+            <Input handleChange={handleChange} value="Hyderabad, India" title="Hyderabad" name="test"/>
+            <Input handleChange={handleChange} value="Bangalore, India" title="Bangalore" name="test"/>
         
 
         </div>
