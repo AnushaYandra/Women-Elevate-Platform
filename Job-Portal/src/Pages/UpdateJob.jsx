@@ -45,7 +45,7 @@ const UpdateJob = () => {
   const onSubmit = values => {
       values.skills = selectedOption;
       //console.log(values);
-      fetch(`http://localhost:3000/update-job/${id}`, {
+      fetch(`https://women-elevate-platform-1.onrender.com/update-job/${id}`, {
         method: "PATCH",
         headers: {"Content-Type" : "application/json"},
         body: JSON.stringify(values)
