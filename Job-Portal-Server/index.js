@@ -7,11 +7,7 @@ const port = process.env.PORT || 3000;
 
 //middleware
 app.use(express.json())
-app.use(cors({
-  origin: ['https://women-elevate-platform.vercel.app/'],
-  methods: ['POST', 'GET', 'PATCH', 'DELETE'],
-  credentials: true
-}));
+app.use(cors());
 
 
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
