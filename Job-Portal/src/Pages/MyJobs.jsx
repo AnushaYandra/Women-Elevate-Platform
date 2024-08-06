@@ -38,7 +38,7 @@ function MyJobs() {
         try {
           const userData = await fetchUserData();
           if (userData && userData.email) {
-            const response = await fetch(`http://localhost:3000/my-jobs/${userData.email}`);
+            const response = await fetch(`https://women-elevate-platform-1.onrender.com/my-jobs/${userData.email}`);
             const data = await response.json();
             setJobs(data);
           }
@@ -61,7 +61,7 @@ function MyJobs() {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:3000/job/${id}`, {
+        fetch(`https://women-elevate-platform-1.onrender.com/job/${id}`, {
             method: "DELETE",
         })
         .then(res => res.json())
