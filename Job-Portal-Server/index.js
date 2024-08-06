@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(cors())
 
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-const uri = process.env.MONOGOBD_URL;
+const uri = process.env.MONGOBD_URL;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
