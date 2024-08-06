@@ -185,7 +185,7 @@ const UpdateJob = () => {
             <div className='create-job-flex pb-5'>
                <div className='w-full'>
                <label className='inline-block mb-2 text-md font-semibold text-dark-green border-b-2 border-brown border-dashed'>Job Posted By</label>
-                   <input type="email" placeholder={"name@gmail.com"} defaultValue={userDetails.email} {...register("postedBy")} className='create-job-input'/>
+                   <input type="email" placeholder={"name@gmail.com"} {...register("postedBy")} className='create-job-input'/>
                </div>
 
                <div className='w-full'>
