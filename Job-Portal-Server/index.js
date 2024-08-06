@@ -16,7 +16,7 @@ app.use(cors(
 ));
 
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-const uri = process.env.MONGODB_URL;
+const uri = "mongodb+srv://anuyandra445:2owNhUy09CmQSBjf@job-portal-project.sbx7uf5.mongodb.net/?retryWrites=true&w=majority&appName=job-portal-project";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
