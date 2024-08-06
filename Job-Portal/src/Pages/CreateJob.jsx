@@ -41,7 +41,7 @@ function CreateJob() {
   const onSubmit = values => {
     values.skills = selectedOption;
     //console.log(values);
-    fetch('http://localhost:3000/post-job', {
+    fetch('https://women-elevate-platform-1.onrender.com/post-job', {
       method: "POST",
       headers: {"Content-Type" : "application/json"},
       body: JSON.stringify(values)
