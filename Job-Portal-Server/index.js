@@ -6,14 +6,13 @@ require('dotenv').config()
 const port = process.env.PORT || 3000;
 
 //middleware
-app.use(express.json())
-app.use(cors(
-    {
-        origin : ["https://women-elevate-platform.vercel.app/"],
-        methods : ["GET", "POST", "DELETE", "PATCH"],
-        credentials : true
-    }
-));
+app.use(express.json());
+
+app.use(cors({
+    origin: "https://women-elevate-platform.vercel.app", 
+    methods: ["GET", "POST", "DELETE", "PATCH"],
+    credentials: true
+}));
 
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = process.env.MONGODB_URI;
