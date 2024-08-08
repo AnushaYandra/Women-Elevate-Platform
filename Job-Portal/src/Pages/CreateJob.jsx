@@ -42,6 +42,7 @@ function CreateJob() {
     values.skills = selectedOption;
     //console.log(values);
     fetch('https://women-elevate-platform-1.onrender.com/post-job', {
+      mode: 'no-cors',
       method: "POST",
       headers: {"Content-Type" : "application/json"},
       body: JSON.stringify(values)
