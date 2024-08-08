@@ -46,6 +46,7 @@ const UpdateJob = () => {
       values.skills = selectedOption;
       //console.log(values);
       fetch(`https://women-elevate-platform-1.onrender.com/update-job/${id}`, {
+        mode: 'no-cors',
         method: "PATCH",
         headers: {"Content-Type" : "application/json"},
         body: JSON.stringify(values)
