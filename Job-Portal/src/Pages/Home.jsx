@@ -18,7 +18,7 @@ const Home = () => {
 
   useEffect(()=> {
     setIsLoading(true);
-    fetch('https://women-elevate-platform-1.onrender.com/all-jobs').then(res => res.json()).then(data=> {
+    fetch('https://women-elevate-platform-1.onrender.com/all-jobs', {mode: 'no-cors'}).then(res => res.json()).then(data=> {
       setJobs(data);
       setIsLoading(false);
     })
