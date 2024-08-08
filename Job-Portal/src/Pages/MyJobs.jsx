@@ -38,7 +38,7 @@ function MyJobs() {
         try {
           const userData = await fetchUserData();
           if (userData && userData.email) {
-            const response = await fetch(`https://women-elevate-platform-1.onrender.com/my-jobs/${userData.email}`, { mode: 'no-cors'});
+            const response = await fetch(`https://women-elevate-platform-1.onrender.com/my-jobs/${userData.email}`);
             const data = await response.json();
             setJobs(data);
           }
