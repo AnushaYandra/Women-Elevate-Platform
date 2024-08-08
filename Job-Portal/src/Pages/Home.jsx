@@ -16,13 +16,25 @@ const Home = () => {
   const navigate = useNavigate();
 
 
-  useEffect(()=> {
-    setIsLoading(true);
-    fetch('https://women-elevate-platform-1.onrender.com/all-jobs', {mode: 'no-cors'}).then(res => res.json()).then(data=> {
+useEffect(() => {
+  setIsLoading(true);
+  fetch('https://women-elevate-platform-1.onrender.com/all-jobs')
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return res.json();
+    })
+    .then(data => {
       setJobs(data);
       setIsLoading(false);
     })
-  }, [])
+    .catch(error => {
+      console.error('Error fetching data:', error);
+      setIsLoading(false);  // Ensure loading state is set to false even if there's an error
+    });
+}, []);
+
 
   //handle input change
   const [query, setQuery] = useState("");
