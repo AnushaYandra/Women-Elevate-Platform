@@ -129,8 +129,16 @@ useEffect(() => {
          {/* Job Cards */}
          <div className='col-span-2 bg-white p-4 rounded-xl '>
           {
-             isLoading ? (<p className='font-medium '>Loading...</p>) : result.length>0 ? <Jobs result={result}/> : 
-             <><h3 className='font-bold mb-2 text-lg '>{result.length} Jobs</h3> <p>No Data Found</p></>
+             isLoading ? (
+                <div className='flex flex-col gap-4'>
+                  <p className='font-medium '>Loading...</p> 
+                  <p>Check out the website while it loads.</p>
+                </div>
+              ) : result.length>0 ? <Jobs result={result}/> : 
+                <>
+                  <h3 className='font-bold mb-2 text-lg '> {result.length} Jobs</h3> 
+                  <p>No Data Found</p>
+                </>
           }
 
           {/* Pagination here  */}
