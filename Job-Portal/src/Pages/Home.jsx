@@ -130,9 +130,8 @@ useEffect(() => {
          <div className='col-span-2 bg-white p-4 rounded-xl '>
           {
              isLoading ? (
-                <div className='flex flex-col gap-4'>
-                  <p className='font-medium '>Loading...</p> 
-                  <p>Check out the website while it loads.</p>
+                <div className='flex flex-col gap-4 items-center justify-center'>
+                  <p className='inline-block text-center mt-12 font-semibold text-dark-green text-md border-b-2 border-dashed border-brown'>Loading...  Check out the website while it loads.</p>
                 </div>
               ) : result.length>0 ? <Jobs result={result}/> : 
                 <>
