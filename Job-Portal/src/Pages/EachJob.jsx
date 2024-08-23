@@ -91,7 +91,7 @@ function EachJob() {
 
                 {userDetails? (
                     <div className='flex justify-center' >
-                        <Link to={jobLink} className='text-center'>
+                        <Link to={jobLink} target="_blank" className='text-center'>
                            <button className='my-5 py-1 px-8 rounded button shadow-custom font-semibold'>Apply Now!</button>
                         </Link>
                     </div>
